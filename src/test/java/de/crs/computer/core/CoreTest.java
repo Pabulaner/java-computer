@@ -19,11 +19,11 @@ public class CoreTest extends TestCase {
         Byte b = null;
 
         for (int i = 0; i < Byte.SIZE; i++) {
-            assertFalse(b.get(i).get());
-            b.get(i).set(true);
-            assertTrue(b.get(i).get());
-            b.get(i).set(false);
-            assertFalse(b.get(i).get());
+            assertFalse(b.getBit(i).get());
+            b.getBit(i).set(true);
+            assertTrue(b.getBit(i).get());
+            b.getBit(i).set(false);
+            assertFalse(b.getBit(i).get());
         }
     }
 

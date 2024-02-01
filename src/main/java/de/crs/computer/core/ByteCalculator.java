@@ -4,6 +4,7 @@ public interface ByteCalculator {
 
     /**
      * Add two bytes together. Write the result in x.
+     *
      * @param x The first byte.
      * @param y The second byte.
      */
@@ -12,6 +13,7 @@ public interface ByteCalculator {
     /**
      * Subtract two bytes by making use of the two's complement method. Write the
      * result in x.
+     *
      * @param x The first byte.
      * @param y The second byte.
      */
@@ -19,6 +21,7 @@ public interface ByteCalculator {
 
     /**
      * Multiply two bytes together. Write the result in x.
+     *
      * @param x The first byte.
      * @param y The second byte.
      */
@@ -26,6 +29,7 @@ public interface ByteCalculator {
 
     /**
      * Divide two bytes. Write the result in x.
+     *
      * @param x The first byte.
      * @param y The second byte.
      */

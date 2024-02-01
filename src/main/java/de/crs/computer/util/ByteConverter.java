@@ -7,7 +7,7 @@ public class ByteConverter {
 
     public static void fromInt(Byte b, int value) {
         for (int i = 0; i < Byte.SIZE; i++) {
-            b.get(i).set((value & 1) == 1);
+            b.getBit(i).set((value & 1) == 1);
             value >>= 1;
         }
     }
@@ -28,7 +28,7 @@ public class ByteConverter {
         int result = 0;
 
         for (int i = 0; i < Byte.SIZE; i++) {
-            if (b.get(i).get()) {
+            if (b.getBit(i).get()) {
                 if (i + 1 == Byte.SIZE && sign) {
                     result *= -1;
                 } else {
@@ -44,6 +44,16 @@ public class ByteConverter {
         throw new NotImplementedException();
     }
 
+    public static String toBinaryString(Byte b) {
+        StringBuilder builder = new StringBuilder();
+
+        for (int i = 0; i < Byte.SIZE; i++) {
+            builder.insert(0, (b.getBit(i).get() ? '1' : '0'));
+        }
+
+        return builder.toString();
+    }
+
     public static String toUnsignedDecString(Byte b) {
         return String.valueOf(toUnsignedInt(b));
     }
@@ -53,6 +63,13 @@ public class ByteConverter {
     }
 
     public static String toHexString(Byte b) {
-        return String.format("%8o", toUnsignedInt(b));
+        String str = Integer.toHexString(toUnsignedInt(b));
+
+        // always fill up to even number of digits
+        if (str.length() % 2 == 1) {
+            str = "0" + str;
+        }
+
+        return str;
     }
 }
