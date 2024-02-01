@@ -28,19 +28,32 @@ public class CoreTest extends TestCase {
     }
 
     public void testByteOperator() {
+        ByteFactory factory = null;
         ByteOperator op = null;
-        Byte a = null;
-        Byte b = null;
 
         int x = 0xaf;
         int y = 0x61;
 
-        ByteConverter.fromInt(a, x);
-        ByteConverter.fromInt(b, y);
+        Byte a;
+        Byte b = factory.create(y);
 
-        assertEquals(ByteConverter.toUnsignedInt(op.and(a, b)), x & y);
-        assertEquals(ByteConverter.toUnsignedInt(op.or(a, b)), x | y);
-        assertEquals(ByteConverter.toUnsignedInt(op.xor(a, b)), x ^ y);
-        assertEquals(ByteConverter.toUnsignedInt(op.not(a)), x ^ 0xff);
+        a = factory.create(x);
+        op.and(a, b);
+        assertEquals(ByteConverter.toUnsignedInt(a), x & y);
+        assertEquals(ByteConverter.toUnsignedInt(b), y);
+
+        a = factory.create(x);
+        op.or(a, b);
+        assertEquals(ByteConverter.toUnsignedInt(a), x | y);
+        assertEquals(ByteConverter.toUnsignedInt(b), y);
+
+        a = factory.create(x);
+        op.xor(a, b);
+        assertEquals(ByteConverter.toUnsignedInt(a), x ^ y);
+        assertEquals(ByteConverter.toUnsignedInt(b), y);
+
+        a = factory.create(x);
+        op.not(a);
+        assertEquals(ByteConverter.toUnsignedInt(a), x ^ 0xff);
     }
 }

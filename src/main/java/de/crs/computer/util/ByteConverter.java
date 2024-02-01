@@ -1,18 +1,19 @@
 package de.crs.computer.util;
 
 import de.crs.computer.core.Byte;
+import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class ByteConverter {
 
     public static void fromInt(Byte b, int value) {
         for (int i = 0; i < Byte.SIZE; i++) {
-            if (i + 1 == Byte.SIZE && value < 0) {
-                b.get(i).set(true);
-            } else {
-                b.get(i).set((value & 1) == 1);
-                value >>= 1;
-            }
+            b.get(i).set((value & 1) == 1);
+            value >>= 1;
         }
+    }
+
+    public static void fromFloat(Byte b, float value) {
+        throw new NotImplementedException();
     }
 
     public static int toUnsignedInt(Byte b) {
@@ -39,11 +40,15 @@ public class ByteConverter {
         return result;
     }
 
-    public static String toUnsignedDec(Byte b) {
+    public static float toFloat(Byte b) {
+        throw new NotImplementedException();
+    }
+
+    public static String toUnsignedDecString(Byte b) {
         return String.valueOf(toUnsignedInt(b));
     }
 
-    public static String toSignedDec(Byte b) {
+    public static String toSignedDecString(Byte b) {
         return String.valueOf(toSignedInt(b));
     }
 

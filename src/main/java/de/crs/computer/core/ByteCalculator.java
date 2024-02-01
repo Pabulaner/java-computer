@@ -3,36 +3,33 @@ package de.crs.computer.core;
 public interface ByteCalculator {
 
     /**
-     * Add two bytes together.
+     * Add two bytes together. Write the result in x.
      * @param x The first byte.
      * @param y The second byte.
-     * @return x + y
      */
-    Byte add(Byte x, Byte y);
+    void add(Byte x, Byte y);
 
     /**
-     * Subtract two bytes by making use of the two's complement method.
+     * Subtract two bytes by making use of the two's complement method. Write the
+     * result in x.
      * @param x The first byte.
      * @param y The second byte.
-     * @return x - y
      */
-    Byte sub(Byte x, Byte y);
+    void sub(Byte x, Byte y);
 
     /**
-     * Multiply two bytes together.
+     * Multiply two bytes together. Write the result in x.
      * @param x The first byte.
      * @param y The second byte.
-     * @return x * y
      */
-    Byte mul(Byte x, Byte y);
+    void mul(Byte x, Byte y);
 
     /**
-     * Divide two bytes.
+     * Divide two bytes. Write the result in x.
      * @param x The first byte.
      * @param y The second byte.
-     * @return x / y
      */
-    Byte div(Byte x, Byte y);
+    void div(Byte x, Byte y);
 
     /**
      * Negate the byte by using the two's complement method. With this method
@@ -54,8 +51,7 @@ public interface ByteCalculator {
      *
      * -6 = 11111010
      *
-     * @param x The byte to negate
-     * @return The negated byte.
+     * @param x The byte to negate.
      */
-    Byte negate(Byte x);
+    void negate(Byte x);
 }
